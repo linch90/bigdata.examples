@@ -27,3 +27,9 @@
     1. [UserSearchCountMapper](mapreduce/src/main/java/com/linch/bigdata/mapreduce/usersearchcount/UserSearchCountMapper.java)
     2. [UserSearchCountReducer](mapreduce/src/main/java/com/linch/bigdata/mapreduce/usersearchcount/UserSearchCountReducer.java)
 > A simple user search count program base on sogou search records that has been data cleaned, that is the output from [DataClean](mapreduce/src/main/java/com/linch/bigdata/mapreduce/dataclean/DataClean.java).
+
+4. [SequenceFileWriter](mapreduce/src/main/java/com/linch/bigdata/mapreduce/sequencefile/SequenceFileWriter.java)
+    1. [SmallFileInputFormat](mapreduce/src/main/java/com/linch/bigdata/mapreduce/sequencefile/SmallFileInputFormat.java)
+    2. [SmallFileRecordReader](mapreduce/src/main/java/com/linch/bigdata/mapreduce/sequencefile/SmallFileRecordReader.java)
+    3. [SequenceFileMapper](mapreduce/src/main/java/com/linch/bigdata/mapreduce/sequencefile/SequenceFileMapper.java)
+> Combines small files to sequence file. Store as [key: filename, value: content bytes]
