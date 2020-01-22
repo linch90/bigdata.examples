@@ -41,14 +41,11 @@ public class CommentSplit {
             job.setOutputKeyClass(Text.class);
             job.setOutputValueClass(NullWritable.class);
 
-            try {
-                job.waitForCompletion(true);
-            } catch (InterruptedException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-
-        } catch (IOException e) {
+            int jobStatusCode = job.waitForCompletion(true) ? 0 : -1;
+            System.exit(jobStatusCode);
+        } catch (IOException | InterruptedException | ClassNotFoundException e) {
             e.printStackTrace();
+            System.exit(-1);
         }
     }
 }

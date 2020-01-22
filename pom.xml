@@ -21,6 +21,15 @@
         </repository>
     </repositories>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -33,4 +42,9 @@
             </plugin>
         </plugins>
     </build>
+
+    <modules>
+        <module>hdfs</module>
+        <module>mapreduce</module>
+    </modules>
 </project>

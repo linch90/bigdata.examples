@@ -42,6 +42,7 @@ public class SequenceFileWriter {
             System.exit(jobStatusCode);
         } catch (IOException | InterruptedException | ClassNotFoundException e) {
             e.printStackTrace();
+            System.exit(-1);
         }
     }
 }
