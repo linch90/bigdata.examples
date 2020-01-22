@@ -25,7 +25,8 @@ public class RatingSplitRecordWriter extends RecordWriter<Text, NullWritable> {
 
     @Override
     public void write(Text text, NullWritable nullWritable) throws IOException, InterruptedException {
-        if(text.toString().split("\t")[9].equals("0")){
+        // "0" is the positive rating
+        if("0".equals(text.toString().split("\t")[9])){
             positiveOutStream.write(text.toString().getBytes());
             positiveOutStream.write("\r\n".getBytes());
         } else {
