@@ -8,16 +8,17 @@ import org.apache.hadoop.mapreduce.RecordWriter;
 import org.apache.hadoop.mapreduce.TaskAttemptContext;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * @author linch90
  */
 public class RatingSplitRecordWriter extends RecordWriter<Text, NullWritable> {
 
-    private final FSDataOutputStream positiveOutStream;
-    private final FSDataOutputStream negativeOutStream;
+    private final OutputStream positiveOutStream;
+    private final OutputStream negativeOutStream;
 
-    RatingSplitRecordWriter(FSDataOutputStream positiveOutStream, FSDataOutputStream negativeOutStream){
+    RatingSplitRecordWriter(OutputStream positiveOutStream, OutputStream negativeOutStream){
         this.positiveOutStream = positiveOutStream;
         this.negativeOutStream = negativeOutStream;
     }

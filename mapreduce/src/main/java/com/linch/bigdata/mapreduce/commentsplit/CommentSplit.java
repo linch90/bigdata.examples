@@ -4,6 +4,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.compress.Lz4Codec;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
@@ -32,6 +33,9 @@ public class CommentSplit {
 
             job.setOutputFormatClass(RatingSplitOutputFormat.class);
             RatingSplitOutputFormat.setOutputPath(job, new Path(dest));
+
+//            RatingSplitOutputFormat.setCompressOutput(job, true);
+//            RatingSplitOutputFormat.setOutputCompressorClass(job, Lz4Codec.class);
 
             job.setMapperClass(CommentSplitMapper.class);
             job.setOutputKeyClass(Text.class);
