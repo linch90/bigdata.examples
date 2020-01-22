@@ -21,7 +21,7 @@
 > 5. click order, the user's click order on current page.
 > 6. click url
 >
->   The sogou search records can be found on [https://pan.baidu.com/s/1aSvsmIPSRm_ukDQKxruLgQ](https://pan.baidu.com/s/1aSvsmIPSRm_ukDQKxruLgQ) 提取码：3ype
+> The sogou search records can be found on [https://pan.baidu.com/s/1aSvsmIPSRm_ukDQKxruLgQ](https://pan.baidu.com/s/1aSvsmIPSRm_ukDQKxruLgQ) 提取码：3ype
 
 3. [UserSearchCount](mapreduce/src/main/java/com/linch/bigdata/mapreduce/usersearchcount/UserSearchCount.java)
     1. [UserSearchCountMapper](mapreduce/src/main/java/com/linch/bigdata/mapreduce/usersearchcount/UserSearchCountMapper.java)
@@ -33,3 +33,11 @@
     2. [SmallFileRecordReader](mapreduce/src/main/java/com/linch/bigdata/mapreduce/sequencefile/SmallFileRecordReader.java)
     3. [SequenceFileMapper](mapreduce/src/main/java/com/linch/bigdata/mapreduce/sequencefile/SequenceFileMapper.java)
 > Combines small files to sequence file. Store as [key: filename, value: content bytes]
+
+5. [CommentSplit](mapreduce/src/main/java/com/linch/bigdata/mapreduce/commentsplit/CommentSplit.java)
+    1. [CommentSplitMapper](mapreduce/src/main/java/com/linch/bigdata/mapreduce/commentsplit/CommentSplitMapper.java)
+    2. [RatingSplitOutputFormat](mapreduce/src/main/java/com/linch/bigdata/mapreduce/commentsplit/RatingSplitOutputFormat.java)
+    3. [RatingSplitRecordWriter](mapreduce/src/main/java/com/linch/bigdata/mapreduce/commentsplit/RatingSplitRecordWriter.java)
+> Split comments by users' rating. The input data can be found on [https://pan.baidu.com/s/1ZC98VXdD-8xxoSbr6e-vlA](https://pan.baidu.com/s/1ZC98VXdD-8xxoSbr6e-vlA) 提取码：x5sg
+> 
+> The 10th field of every record is the rating, which 0 is positive rating.
