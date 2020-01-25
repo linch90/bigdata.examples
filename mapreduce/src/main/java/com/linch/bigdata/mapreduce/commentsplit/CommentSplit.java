@@ -40,6 +40,7 @@ public class CommentSplit {
             job.setMapperClass(CommentSplitMapper.class);
             job.setOutputKeyClass(Text.class);
             job.setOutputValueClass(NullWritable.class);
+            job.setOutputFormatClass(RatingSplitOutputFormat.class);
 
             int jobStatusCode = job.waitForCompletion(true) ? 0 : -1;
             System.exit(jobStatusCode);
