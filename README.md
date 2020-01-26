@@ -72,5 +72,17 @@
     
     > The test data can be found on [https://pan.baidu.com/s/1W7fvYdCRVu-pef_SzV_2mQ](https://pan.baidu.com/s/1W7fvYdCRVu-pef_SzV_2mQ) 提取码：i98h
     
+ 8. Raw weather data from [NCDC](https://www.ncdc.noaa.gov/)
+    ```text
+    0114010010999991990010100004+70933-008667FM-12+0009ENJA V0201901N00151004201CN0030001N9+99999+99999101721ADDAA106005091AG10001AY171061AY221061GF108991081071004501999999MD1110011+9999MW1731OA149900211REMSYN011333   91104
+    0088010010999991990010103004+70933-008667FM-12+0009ENJA V0201601N00051000301CN0002001N9-00051-00061101651ADDAG12000AY171031AY241031GA1091+999999999GF109991091999999999999999MD1110051+9999MW1101
+    0149010010999991990010106004+70933-008667FM-12+0009ENJA V0209991C00001000151CN0001001N9-00031-00041101621ADDAA199005091AG10000AY171061AY241061GA1091+999999999GF109991091999999999999999KA1120N-00101MD1710031+9999MW1471OA149900211REMSYN017333   21010 91104
+    0088010010999991990010109004+70933-008667FM-12+0009ENJA V0200901N00101000151CN0000001N9-00031-00041101601ADDAG12000AY141031AY241031GA1091+999999999GF109991091999999999999999MD1710021+9999MW1451
+    ```
+    The [88, 92] range of data indicate the temperature zone(celsius, scale 10), we use mapreduce to sort the data by the temperature.
+    1. [PreSortProcessor](mapreduce/src/main/java/com/linch/bigdata/mapreduce/noaa/PreSortProcessor.java)
+        The input is raw NCDC data, the output of map stage is **SequenceFileOutputFormat** (temperature *IntWriteable*, raw data *Text*), no reduce stage.
+    2. [TemperatureSorting](mapreduce/src/main/java/com/linch/bigdata/mapreduce/noaa/TemperatureSorting.java)
+        The input is the data from [PreSortProcessor]'s map stage, we use **TotalOrderPartitioner** and **InputSampler.RandomSampler** to split the dataset evenly.
+    > The test data can be found on [https://pan.baidu.com/s/1HD8-hruV_cEW5pkWWZRD4g](https://pan.baidu.com/s/1HD8-hruV_cEW5pkWWZRD4g) 提取码: w5ge
     
-
