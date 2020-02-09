@@ -86,3 +86,6 @@
         The input is the data from [PreSortProcessor]'s map stage, we use **TotalOrderPartitioner** and **InputSampler.RandomSampler** to split the dataset evenly.
     > The test data can be found on [https://pan.baidu.com/s/1HD8-hruV_cEW5pkWWZRD4g](https://pan.baidu.com/s/1HD8-hruV_cEW5pkWWZRD4g) 提取码: w5ge
     
+## Zookeeper
+Program with [Apache Curator](https://curator.apache.org/)
+1. [CuratorClientUtil](zookeeper/src/main/java/com/linch/bigdata/curator/CuratorClientUtil.java)
