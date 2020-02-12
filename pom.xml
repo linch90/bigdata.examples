@@ -64,5 +64,6 @@
         <module>hdfs</module>
         <module>mapreduce</module>
         <module>zookeeper</module>
+        <module>hive</module>
     </modules>
 </project>

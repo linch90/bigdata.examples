@@ -89,3 +89,6 @@
 ## Zookeeper
 Program with [Apache Curator](https://curator.apache.org/)
 1. [CuratorClientUtil](zookeeper/src/main/java/com/linch/bigdata/curator/CuratorClientUtil.java)
+
+## Hive
+1. Hive Jdbc Sample [HiveJdbc](hive/src/main/java/com/linch/bigdata/hive/HiveJdbc.java)
